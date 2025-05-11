@@ -29,7 +29,14 @@
                     <li><a><i class="fa fa-home"></i> Districts <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('district.index') }}">Liste des districts</a></li>
-                            <li><a href="{{ route('district.create') }}">Nouveau district</a></li>
+                            {{-- <li><a href="{{ route('district.create') }}">Nouveau district</a></li> --}}
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-users"></i> Utilisateurs <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ route('user.index') }}">Liste des utilisateurs</a></li>
+                            <li><a href="{{ route('user.create') }}">Nouvel utilisateur</a></li>
                         </ul>
                     </li>
                 </ul>

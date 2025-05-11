@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\DistrictController;
 
 /*
@@ -21,6 +22,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function()
 {
     Route::resource('district',DistrictController::class);
+    Route::resource('user',UserController::class);
 
 });
 Auth::routes(['register'=> false]);
