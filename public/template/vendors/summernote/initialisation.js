@@ -4,7 +4,7 @@ $('.summernote').summernote({
            // all the toolbar contents, on the bright side
            // you can place uploadcare button wherever you want
            lang: 'fr-FR', // default: 'en-US'
-           height: 150,                 // set editor height
+           height: 500,                 // set editor height
            minHeight: null,             // set minimum height of editor
            maxHeight: null,             // set maximum height of editor
            // focus: true, 
@@ -27,7 +27,7 @@ $('.summernote').summernote({
            callbacks: {
             onInit: function () {
               // Définir la taille de police par défaut
-              $(this).summernote('fontSize', 25);
+              $(this).summernote('fontSize', 30);
             }
           }
           // uploadcare: {

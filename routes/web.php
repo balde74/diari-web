@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DistrictController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware('auth')->group(function()
+{
+    Route::resource('district',DistrictController::class);
+
+});
 Auth::routes(['register'=> false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
