@@ -9,7 +9,7 @@ $('.summernote').summernote({
            maxHeight: null,             // set maximum height of editor
            // focus: true, 
            toolbar: [
-             //['uploadcare', ['uploadcare']], // here, for example
+            //  ['uploadcare', ['uploadcare']], // here, for example
              ['style', ['style']],
              ['font', ['bold', 'italic', 'underline', 'clear']],
              ['fontname', ['fontname']],
@@ -17,11 +17,11 @@ $('.summernote').summernote({
              ['para', ['ul', 'ol', 'paragraph']],
              ['height', ['height']],
              ['table', ['table']],
-             //['insert', ['media', 'link', 'hr', 'picture', 'video']],
-             ['insert', ['link']],
-            ['view', ['fullscreen', 'codeview']],
+             ['insert', ['media', 'link','hr', 'picture']],
+            ['view', ['fullscreen']],
             //['view', ['codeview']]
-             //['help', ['help']]
+             ['help', ['help']],
+             ['custom', ['emoji']], 
            ],
            fontSizes: ['12', '16', '18', '20', '25'],
            callbacks: {
@@ -29,7 +29,7 @@ $('.summernote').summernote({
               // Définir la taille de police par défaut
               $(this).summernote('fontSize', 30);
             }
-          }
+          },
           // uploadcare: {
              // button name (default is Uploadcare)
             // buttonLabel: 'Image / Fichier',
@@ -46,5 +46,29 @@ $('.summernote').summernote({
             // tabs: 'all',
             // multiple: true
            //}
+
+           buttons: {
+            emoji: function(context) {
+              var ui = $.summernote.ui;
+    
+              // Crée le bouton emoji
+              var button = ui.button({
+                contents: '<i class="fa fa-smile-o"></i>',
+                tooltip: 'Insérer un emoji',
+                click: function () {
+                  const picker = new EmojiButton({
+                    position: 'bottom-start'
+                  });
+    
+                  picker.on('emoji', emoji => {
+                    context.invoke('editor.insertText', emoji);
+                  });
+    
+                  picker.togglePicker(button.render()[0]);
+                }
+              });
+    
+              return button.render(); // retourne le bouton
+            }}
          });
 })

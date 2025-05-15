@@ -1,7 +1,10 @@
 @extends('layouts.main-layout')
 @section('title') Modification de district @endsection
 @section('autres_css')
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet"> --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css" rel="stylesheet">
+
+
 @endsection
 @section('content')
 
@@ -55,7 +58,8 @@
                 <div class="ln_solid"></div>
                 <div class="item form-group">
                     <div class="col-md-8 col-sm-8 offset-md-3">
-                        <button type="submit" class=" btn-sm btn-block btn-success">Enregistrer</button>
+                        <button type="submit" class=" btn-sm btn-block btn-success"><span
+                            class="fa fa-trash"></span> Enregistrer</button>
                     </div>
                 </div>
 
@@ -67,7 +71,14 @@
 @endsection
 
 @section('autres_scripts')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-<script src="{{ asset('template/vendors/summernote/lang/summernote-fr-FR.js') }}"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.js"></script>
+
+{{-- <script src="{{ asset('template/vendors/summernote/lang/summernote-fr-FR.js') }}"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@4.6.0/dist/emoji-button.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@4.6.4/dist/index.min.js"></script> --}}
+
+
 <script src="{{ asset('template/vendors/summernote/initialisation.js') }}"></script>
+
 @endsection

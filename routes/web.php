@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\DistrictController;
 
 /*
@@ -23,6 +24,11 @@ Route::middleware('auth')->group(function()
 {
     Route::resource('district',DistrictController::class);
     Route::resource('user',UserController::class);
+    Route::resource('event',EventController::class);
+
+    //status des evenements
+    Route::get('event/{id}/action',[EventController::class,'publish'])->name('publish_event');
+
 
 });
 Auth::routes(['register'=> false]);
