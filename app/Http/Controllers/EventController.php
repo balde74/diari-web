@@ -104,9 +104,9 @@ class EventController extends Controller
 
         if ($request->image) {
             $hash = md5(mt_rand());
-            // if (!empty($event->image)) {
-            //     unlink('documents/'.$event->image);
-            // }
+            if (!empty($event->image)) {
+                unlink('documents/'.$event->image);
+            }
             $event->image = $request->image->storeAs('events', $hash . '' . $event->id);
             $event->save();
         }

@@ -1,11 +1,10 @@
 <?php
-
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\User;
-use App\Models\Event;
 use App\Models\District;
+use App\Models\Staff;
+use App\Models\User;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
@@ -18,23 +17,24 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create('fr_FR');
         // \App\Models\User::factory(10)->create();
-        Event::truncate(); // vide la table districts
+        Staff::truncate(); // vide la table districts
         // \App\Models\District::factory()->count(10)->create();
 
-        $users = User::where('role_id','<>',1)->get();
+        $users     = User::where('role_id', '<>', 1)->get();
         $districts = District::all();
-         // Créer 10 événements
+        // Créer 10 événements
         for ($i = 0; $i < 10; $i++) {
-            Event::create([
-                'title' => $faker->sentence(3),
-                'place' => $faker->city,
-                'description' => $faker->paragraphs(18,true),
-                'date' => $faker->dateTimeBetween('now', '+1 year')->format('Y-m-d'),
-                'district_id' => $faker->randomElement($districts)->id,
-                'user_id' => $users->random()->id,
+            Staff::create([
+                'name'        => $faker->name(),
+                'position'    => $faker->jobTitle(),
+                'department'  => $faker->randomElement(['HR', 'Finance', 'IT', 'Education', 'Santé']),
+                'start_date'  => $faker->date(),
+                'email'       => $faker->unique()->safeEmail(),
+                // 'image'       => 'documents/staff/default.jpg', // tu peux gérer le stockage réel si tu veux plus tard
+                'bio'         => $faker->paragraph(4),
+                'district_id' => $faker->randomElement($districts)->id ?? null,
             ]);
         }
-        
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

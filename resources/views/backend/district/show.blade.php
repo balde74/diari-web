@@ -1,6 +1,6 @@
 @extends('layouts.main-layout')
 @section('title')
-affichage
+Affichage
 @endsection
 @section('content')
 

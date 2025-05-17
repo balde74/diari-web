@@ -40,6 +40,14 @@
                         </ul>
                     </li>
 
+                    <li><a><i class="fa fa-user-md  "></i> Personnel <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ route('staff.index') }}">Liste du personnel</a></li>
+                            <li><a href="{{ route('staff.create') }}">Nouveau personnel</a></li>
+
+                        </ul>
+                    </li>
+
                     <li><a><i class="fa fa-users"></i> Utilisateurs <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('user.index') }}">Liste des utilisateurs</a></li>
