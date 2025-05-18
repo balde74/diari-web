@@ -33,7 +33,7 @@
                         </ul>
                     </li>
 
-                    <li><a><i class="fa fa-home"></i> Evènements <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-calendar"></i> Evènements <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('event.index') }}">Liste des évènements</a></li>
                             <li><a href="{{ route('event.create') }}">Nouvel évènement</a></li>
@@ -53,6 +53,13 @@
                             <li><a href="{{ route('partner.index') }}">Liste des partenaires</a></li>
                             <li><a href="{{ route('partner.create') }}">Nouveau partenaire</a></li>
 
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-book"></i> Documentation <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ route('documentation.index') }}">Liste des documents</a></li>
+                            <li><a href="{{ route('documentation.create') }}">Nouveau document</a></li>
                         </ul>
                     </li>
 

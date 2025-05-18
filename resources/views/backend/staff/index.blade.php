@@ -3,7 +3,7 @@
     Liste des personnels
 @endsection
 @section('autres_css')
-    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 @endsection
 @section('content')
     <div class="row">
