@@ -40,10 +40,18 @@
                         </ul>
                     </li>
 
-                    <li><a><i class="fa fa-user-md  "></i> Personnel <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-user-md  "></i> Personnels <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('staff.index') }}">Liste du personnel</a></li>
                             <li><a href="{{ route('staff.create') }}">Nouveau personnel</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-coffee  "></i> Partenaires <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ route('partner.index') }}">Liste des partenaires</a></li>
+                            <li><a href="{{ route('partner.create') }}">Nouveau partenaire</a></li>
 
                         </ul>
                     </li>

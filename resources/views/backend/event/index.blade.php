@@ -73,11 +73,10 @@
                                                 {{-- <a href="{{ route('event.edit',$event->id) }} " class="btn btn-sm btn-info">Editer</a> --}}
                                                 <a href="# " class="btn btn-sm btn-danger  supprimer"> <span
                                                         class="fa fa-trash"></span> Supprimer</a>
-                                                <form action="{{ route('event.destroy', $event->id) }}" method="post"
-                                                    class="form_suppression">
+                                                <form action="{{ route('event.destroy', $event->id) }}" method="post" 
+                                                    class="form_suppression d-none">
                                                     @csrf
                                                     @method('DELETE')
-                                                    {{-- <input type="submit" value="supprimer" class="btn btn-sm btn-danger"> --}}
                                                 </form>
                                             @endif
                                         </td>

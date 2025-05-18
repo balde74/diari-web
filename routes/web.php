@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\DistrictController;
 
 /*
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function()
     Route::resource('user',UserController::class);
     Route::resource('event',EventController::class);
     Route::resource('staff',StaffController::class);
+    Route::resource('partner',PartnerController::class);
 
     //status des evenements
     Route::get('event/{id}/action',[EventController::class,'publish'])->name('publish_event');
