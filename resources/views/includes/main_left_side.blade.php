@@ -56,10 +56,17 @@
                         </ul>
                     </li>
 
-                    <li><a><i class="fa fa-book"></i> Documentation <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-book"></i> Documentations <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('documentation.index') }}">Liste des documents</a></li>
                             <li><a href="{{ route('documentation.create') }}">Nouveau document</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-image"></i> Caroussels <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ route('carousel.index') }}">Liste des images</a></li>
+                            <li><a href="{{ route('carousel.create') }}">Nouvelle image</a></li>
                         </ul>
                     </li>
 
