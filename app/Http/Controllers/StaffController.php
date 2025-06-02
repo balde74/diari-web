@@ -38,7 +38,7 @@ class StaffController extends Controller
             'department' => 'required|string|max:255',
             'start_date' => 'required|date',
             'bio' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'district_id' => 'nullable|exists:districts,id',
         ]);
 
@@ -100,7 +100,7 @@ class StaffController extends Controller
             'department' => 'required|string|max:255',
             'start_date' => 'required|date',
             'bio' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'district_id' => 'nullable|exists:districts,id',
         ]);
 

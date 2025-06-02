@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Post;
 use App\Models\User;
 use App\Models\Staff;
 use App\Models\Carousel;
@@ -27,5 +28,10 @@ class District extends Model
     public function carousels()
     {
         return $this->hasMany(Carousel::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

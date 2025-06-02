@@ -70,6 +70,13 @@
                         </ul>
                     </li>
 
+                    <li><a><i class="fa fa-newspaper-o"></i> Articles <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ route('post.index') }}">Liste des articles</a></li>
+                            <li><a href="{{ route('post.create') }}">Nouvel article</a></li>
+                        </ul>
+                    </li>
+
                     <li><a><i class="fa fa-users"></i> Utilisateurs <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('user.index') }}">Liste des utilisateurs</a></li>

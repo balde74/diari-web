@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\SectionController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\DocumentationController;
@@ -33,9 +35,16 @@ Route::middleware('auth')->group(function()
     Route::resource('partner',PartnerController::class);
     Route::resource('documentation',DocumentationController::class);
     Route::resource('carousel',CarouselController::class);
+    Route::resource('post',PostController::class);
+    Route::resource('section',SectionController::class);
 
-    //status des evenements
+    Route::get('post/{id}/section',[PostController::class,'section'])->name('section');
+    Route::get('section/{id}/create',[SectionController::class,'new_section'])->name('section_create');
+
+
+    //status des status des events et post
     Route::get('event/{id}/action',[EventController::class,'publish'])->name('publish_event');
+    Route::get('post/{id}/action',[PostController::class,'publish'])->name('publish_post');
 
 
 });

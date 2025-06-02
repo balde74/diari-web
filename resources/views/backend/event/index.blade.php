@@ -59,16 +59,16 @@
 
                                             <a href="{{ route('event.show', $event->id) }} "
                                                 class="btn btn-sm btn-info "><span class="fa fa-eye"></span> Information</a>
-                                            @if (Auth::user()->id == $event->user_id || Auth::user()->role->id == 1 || Auth::user()->role->id == 2)
-                                                @if ($event->publish == false)
-                                                    <a href="{{ route('publish_event', $event->id) }} "
-                                                        class="btn btn-sm btn-success "> <span class="fa fa-share"></span>
-                                                        Publier</a>
-                                                @elseif($event->publish == true)
-                                                    <a href="{{ route('publish_event', $event->id) }} "
-                                                        class="btn btn-sm btn-warning "> <span
-                                                            class="fa fa-eye-slash"></span> Masquer</a>
-                                                @endif
+                                                @if (Auth::user()->id == $event->user_id || Auth::user()->role->id == 1 || Auth::user()->role->id == 2)
+                                                    @if ($event->publish == false)
+                                                        <a href="{{ route('publish_event', $event->id) }} "
+                                                            class="btn btn-sm btn-success "> <span class="fa fa-share"></span>
+                                                            Publier</a>
+                                                    @elseif($event->publish == true)
+                                                        <a href="{{ route('publish_event', $event->id) }} "
+                                                            class="btn btn-sm btn-warning "> <span
+                                                                class="fa fa-eye-slash"></span> Masquer</a>
+                                                    @endif
 
                                                 {{-- <a href="{{ route('event.edit',$event->id) }} " class="btn btn-sm btn-info">Editer</a> --}}
                                                 <a href="# " class="btn btn-sm btn-danger  supprimer"> <span

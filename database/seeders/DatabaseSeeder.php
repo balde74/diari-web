@@ -2,11 +2,13 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Post;
 use App\Models\User;
 use App\Models\Staff;
 use App\Models\Partner;
 use App\Models\District;
 use Faker\Factory as Faker;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,18 +20,22 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create('fr_FR');
         // \App\Models\User::factory(10)->create();
-        // Partner::truncate(); // vide la table districts
+        Post::truncate(); // vide la table districts
         // \App\Models\District::factory()->count(10)->create();
 
         $users     = User::where('role_id', '<>', 1)->get();
         $districts = District::all();
         // Créer 10 événements
         for ($i = 0; $i < 10; $i++) {
-            Partner::create([
-            'name' => $faker->company,
-            'acronym' => strtoupper($faker->lexify('???')), // ex: ABC
-            'link' => $faker->url,
-            'image' => 'partner/partner' . rand(1, 3) . '.png',
+            $title = $faker->sentence(6, true);
+            Post::create([
+                'title' => $title,
+                // 'image' => $faker->optional()->image('public/documents', 640, 480, null, false), // génère une image dans public/documents
+                'introduction' => $faker->paragraphs(3, true),
+                'slug' => Str::slug($title) . '-' . Str::random(5), // assure unicité du slug
+                'publish' => $faker->boolean(70), // 70% des posts sont publiés
+                'district_id' => $districts->random()->id ?? null,
+                'user_id' => $users->random()->id,
             ]);
         }
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Post;
 use App\Models\Role;
 use App\Models\District;
 use Laravel\Sanctum\HasApiTokens;
@@ -61,5 +62,10 @@ class User extends Authenticatable
     public function district()
     {
         return $this->belongsTo(District::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
