@@ -35,6 +35,42 @@
                 </div>
 
                 <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="contact">Contact</label>
+                    <div class="col-md-8 col-sm-8 ">
+                            <input type="text" name="contact" id="contact" required="required" class="form-control {{ $errors->has('contact') ? ' is-invalid' : '' }}" value="{{ old('contact')??$district->contact }}" autofocus>
+                            @if ($errors->has('contact'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('contact') }}</strong>
+                                </span>
+                            @endif
+                    </div>
+                </div>
+
+                <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="email">Email </label>
+                    <div class="col-md-8 col-sm-8 ">
+                            <input type="text" name="email" id="email" required="required" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email')??$district->email }}" autofocus>
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                    </div>
+                </div>
+
+                <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="place">Emplacement</label>
+                    <div class="col-md-8 col-sm-8 ">
+                            <input type="text" name="place" id="place" required="required" class="form-control {{ $errors->has('place') ? ' is-invalid' : '' }}" value="{{ old('place')??$district->place }}" autofocus>
+                            @if ($errors->has('place'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('place') }}</strong>
+                                </span>
+                            @endif
+                    </div>
+                </div>
+
+                <div class="item form-group">
                     <div class="col-md-6 col-sm-8 mx-auto mt-2">
                                 <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-sm mx-auto" data-toggle="modal" data-target="#exampleModalCenter">

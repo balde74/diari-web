@@ -13,7 +13,7 @@ class District extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','presentation'];
+    protected $fillable = ['name','presentation','contact','email','place'];
 
     public function users()
     {

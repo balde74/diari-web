@@ -55,7 +55,10 @@ class DistrictController extends Controller
     {
         $request->validate([
             'name'=>'required|min:3',
-            'presentation'=> 'required'
+            'presentation'=> 'required',
+            'contact'=> 'required',
+            'email'=> 'required',
+            'place'=> 'required',
         ]);
 
         $district->update($request->all());

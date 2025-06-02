@@ -19,6 +19,9 @@
 	              <thead>
 		               <tr>
 							<th>District</th>
+							<th>Contact</th>
+							<th>Email</th>
+							<th>Emplacement</th>
 							{{-- <th>Présentation</th> --}}
 							<th>Action</th>
 						</tr>
@@ -28,6 +31,9 @@
 		        		@foreach ($districts as $district)
 							<tr>
 								<td>{{ $district->name }}</td>
+								<td>{{ $district->contact }}</td>
+								<td>{{ $district->email }}</td>
+								<td>{{ $district->place }}</td>
 								{{-- <td>{!! $district->presentation !!}</td> --}}
 								<td class="d-flex justify-content-center parent">
 									{{-- @if (Auth::user()->district_id == $district->id || Auth::user()->role_id == 1) --}}
