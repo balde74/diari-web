@@ -1,115 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-     
-    <title> ISFAD @yield('title', 'isfad')</title>
-    {{-- <meta name="author" content="themesflat.com"> --}}
+<html lang="fr">
+<head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <title>@yield('title') | Diari-web</title>
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/stylesheets/bootstrap.css') }}">
+  <!-- Mobile Specific Metas
+================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Construction Html5 Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/stylesheets/style.css') }}">
+  <!-- Favicon
+================================================== -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/stylesheets/responsive.css') }}">
+  <!-- CSS
+================================================== -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{ asset('template-front/plugins/bootstrap/bootstrap.min.css')}}">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="{{ asset('template-front/plugins/fontawesome/css/all.min.css')}}">
+  <!-- Animation -->
+  <link rel="stylesheet" href="{{ asset('template-front/plugins/animate-css/animate.css')}}">
+  <!-- slick Carousel -->
+  <link rel="stylesheet" href="{{ asset('template-front/plugins/slick/slick.css')}}">
+  <link rel="stylesheet" href="{{ asset('template-front/plugins/slick/slick-theme.css')}}">
+  <!-- Colorbox -->
+  <link rel="stylesheet" href="{{ asset('template-front/plugins/colorbox/colorbox.css')}}">
+  <!-- Template styles-->
+  <link rel="stylesheet" href="{{ asset('template-front/css/style.css')}}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/stylesheets/colors/color1.css') }}" id="colors">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/stylesheets/animate.css') }}">
-
-    {{-- custom css --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/stylesheets/custom.css') }}">
-
-  <link rel="icon" href="{{ asset('frontend/images/favicon.png') }}" type="image/png" />
-    
-    <link href="#" rel="shortcut icon">
-    <!--[if lt IE 9]>
-        <script src="javascript/html5shiv.js"></script>
-        <script src="javascript/respond.min.js"></script>
-    <![endif]-->
-    @yield('autres_css')
-  </head>
-
-  <body class="header-sticky">
-  {{-- top nav --}}
-  @include('includes/frontend/top-nav')
-
-  @include('includes/frontend/header')
-
-  @yield('content')    
-
-  @include('includes/frontend/footer')
-   {{-- <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> --}}
-   <script type="text/javascript" src="{{ asset('frontend/javascript/jquery.min.js') }}"></script>
-
-<script type="text/javascript" src=" {{ asset('frontend/javascript/bootstrap.min.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/jquery.easing.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/jQuery.verticalCarousel.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/owl.carousel.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/parallax.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/jquery-waypoints.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/jquery.tweet.min.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/jquery.matchHeight-min.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/jquery-validate.js') }} "></script>
-
-<script type="text/javascript" src=" {{ asset('frontend/javascript/jquery.themepunch.tools.min.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/jquery.themepunch.revolution.min.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/slider.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/jquery.cookie.js') }} "></script>
-
-<script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdo2kVH0HANk9Q4jlX1mLTNE3bdKljuVg&libraries=drawing">
-</script>
-<script type="text/javascript" src=" {{ asset('frontend/javascript/jquery.panmap.js') }} "></script>
-
-<script>
-$(function(){
-    $("#map").panmap({
-  height:"300px",
-  data:{
-     center:{lat:9.544122,lng:-13.677610,zoom:15},
-      objects:[
-      {
-      "type":"marker",
-      "strokeColor":"#FF0000",
-      "strokeOpacity":"1.0",
-      "strokeWeight":"2",
-      "fillColor":"#FF0000",
-      "fillOpacity":"0.35",
-      "title":"ISFAD",
-      "content":"INSTITUT SUPERIEUR DE FORMATION A DISTANCE",
-    "lat":9.544122,
-      "lng":-13.677610,
-      "radius":43.67528289531
-      }
-      ]
-  },
-  change: function(event){
-      $("#events").val($("#events").val() + "\n [change]: "+ event.type+"...");
-  }
-    });
-    
-    $("#editable").change(function(){
-  $("#map").panmap("edit",$(this).attr("checked")?true:false);
-    });
-    $("#getvalue").click(function(){
-  $("#result").val(JSON.stringify($("#map").panmap("value"),null,4));
-    });
-
-});
-</script>
+</head>
+<body>
+  <div class="body-inner">
+    @include('includes/frontend/top_and_nav_bar')
+    @yield('content')
+    @include('includes/frontend/footer')
 
 
 
 
+ 
+  <!-- initialize jQuery Library -->
+  <script src="{{ asset('template-front/plugins/jQuery/jquery.min.js')}}"></script>
+  <!-- Bootstrap jQuery -->
+  <script src="{{ asset('template-front/plugins/bootstrap/bootstrap.min.js')}}" defer ></script>
+  <!-- Slick Carousel -->
+  <script src="{{ asset('template-front/plugins/slick/slick.min.js')}}"></script>
+  <script src="{{ asset('template-front/plugins/slick/slick-animation.min.js')}}"></script>
+  <!-- Color box -->
+  <script src="{{ asset('template-front/plugins/colorbox/jquery.colorbox.js')}}"></script>
+  <!-- shuffle -->
+  <script src="{{ asset('template-front/plugins/shuffle/shuffle.min.js')}}" defer></script>
 
-<script type="text/javascript" src=" {{ asset('frontend/javascript/main.js') }} "></script>
-<script type="text/javascript" src=" {{ asset('frontend/custom/app.js') }} "></script>
 
-        @yield('autres_scripts')
+  <!-- Google Map API Key-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <!-- Google Map Plugin-->
+  <script src="{{ asset('template-front/plugins/google-map/map.js')}}" defer></script>
 
+  <!-- Template custom -->
+  <script src="{{ asset('template-front/js/script.js')}}"></script>
+
+  </div><!-- Body inner end -->
   </body>
-</html>
-  
+
+  </html>
