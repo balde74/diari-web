@@ -34,6 +34,7 @@
                     <table id="example" class="table table-hover table-bordered text-center">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Titre</th>
                                 <th>Actions</th>
                             </tr>
@@ -42,6 +43,7 @@
                         <tbody>
                             @foreach ($docs as $doc)
                                 <tr>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $doc->title }}</td>
                                     <td class="parent">
                                         @if ($doc->file)

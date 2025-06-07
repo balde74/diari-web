@@ -26,10 +26,11 @@
 						
 						
 						<h4 > <strong>Description</strong></h4>
-						<div style="text-align: justify;">
-							<p >{!!$event->description!!}</p>
-
+						
+						<div style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;">
+							{!!$event->description!!}
 						</div>
+						
 						@if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
 							<p><strong>Enregistré par : </strong> {{ $event->user->getFullName() }}</p>
 							<p><strong>District de : </strong> {{ $event->district?$event->district->name:'Général' }}</p>
@@ -37,9 +38,9 @@
 
 						<hr>
 						<div class="text-center">
-							<a class="btn-sm" style="margin-right: 10%" href="{{ route('event.index') }}"> <i class="fa fa-arrow-left"></i> Liste des évènements</a>
+							<a class="btn btn-sm" style="margin-right: 10%" href="{{ route('event.index') }}"> <i class="fa fa-arrow-left"></i> Liste des évènements</a>
 							@if (Auth::user()->id == $event->user_id || Auth::user()->role->id == 1 || Auth::user()->role->id == 2)
-							<a class="btn-sm" href="{{ route('event.edit',$event->id) }}"> <i class="fa fa-edit"></i> Editer </a>
+							<a class="btn btn-sm" href="{{ route('event.edit',$event->id) }}"> <i class="fa fa-edit"></i> Editer </a>
 							@endif
 						</div>
 					</div>

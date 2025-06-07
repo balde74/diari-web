@@ -107,8 +107,8 @@ Publier un article
 
 @endsection
 
-@section('autres_scripts')
+{{-- @section('autres_scripts')
  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
- <script src="{{ asset('backend/vendors/summernote/lang/summernote-fr-FR.js') }}"></script>
- <script src="{{ asset('backend/vendors/summernote/initialisation.js') }}"></script>
-@endsection
+ <script src="{{ asset('template/vendors/summernote/lang/summernote-fr-FR.js') }}"></script>
+ <script src="{{ asset('template/vendors/summernote/initialisation.js') }}"></script>
+@endsection --}}

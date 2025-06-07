@@ -44,6 +44,17 @@
  --}}
 
     @yield('autres_css')
+
+    <style>
+      table thead {
+        background-color: #2A3F54;
+        color: white;
+        /* background-color: #2A3F54; Rouge Bootstrap */
+        /* background-color: #145A32 !important; */
+        /* #145A32 */
+        /* color: white; */
+    }
+    </style>
   </head>
 
   <body class="nav-md">

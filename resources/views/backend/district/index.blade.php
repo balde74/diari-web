@@ -18,6 +18,7 @@
              	<table id="example" class="table table-striped table-bordered display text-center">
 	              <thead>
 		               <tr>
+							<th>#</th>
 							<th>District</th>
 							<th>Contact</th>
 							<th>Email</th>
@@ -30,6 +31,7 @@
 		        	<tbody>
 		        		@foreach ($districts as $district)
 							<tr>
+								<td>{{ $loop->iteration }}</td>
 								<td>{{ $district->name }}</td>
 								<td>{{ $district->contact }}</td>
 								<td>{{ $district->email }}</td>

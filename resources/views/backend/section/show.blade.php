@@ -23,10 +23,10 @@ section {{ $section->position }}
 					</div>
 					<br>
 					<h4 class="text-center">
-						<a class="btn-sm" style="margin-right: 10%" href="{{route('section', $section->post->id) }}"> <i class="fa fa-arrow-left"></i> Liste des sections</a>
+						<a class="btn btn-sm" style="margin-right: 10%" href="{{route('section', $section->post->id) }}"> <i class="fa fa-arrow-left"></i> Liste des sections</a>
 						@if (Auth::user()->id == $section->post->user_id || Auth::user()->role->id == 1 || Auth::user()->role->id == 2)
 
-						<a href="{{ route('section.edit',$section->id) }}" class="btn-sm text-center"><i class="fa fa-edit"></i>Editer</a>
+						<a href="{{ route('section.edit',$section->id) }}" class="btn btn-sm text-center"><i class="fa fa-edit"></i>Editer</a>
 						@endif
 
 					</h4>

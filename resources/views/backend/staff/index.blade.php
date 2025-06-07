@@ -23,7 +23,8 @@
                         <table id="example" class="table table-striped table-bordered display text-center">
                             <thead>
                                 <tr>
-                                    {{-- <th>Image</th> --}}
+                                    <th>#</th>
+                                    <th>Image</th>
                                     <th>Nom</th>
                                     <th>Poste Occupé</th>
                                     <th>Département</th>
@@ -37,11 +38,10 @@
                             <tbody>
                                 @foreach ($staff as $staff)
                                     <tr>
-					
-                                        {{-- <td>
-                                            <img src="{{ asset('documents/' . $staff->image) }}" alt="image"
-                                                style="width:100px;">
-                                        </td> --}}
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>
+                                            <img src="{{ asset('documents/' . $staff->image) }}" alt="image" width="60" height="60" >
+                                        </td>
                                         <td> <strong>{{ $staff->name }}</strong></td>
                                         <td> {{ $staff->position }} </td>
                                         <td> {{ $staff->department }} </td>

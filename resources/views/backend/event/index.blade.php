@@ -21,6 +21,7 @@
                         <table id="example" class="table table-striped table-bordered text-center">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Date</th>
                                     <th>Titre</th>
                                     <th>Lieu</th>
@@ -33,6 +34,7 @@
                             <tbody>
                                 @foreach ($events as $event)
                                     <tr>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>
                                             @php
                                                 $date = date_create($event->date);
@@ -50,9 +52,9 @@
                                         </td>
                                         <td>
                                             @if ($event->publish == 0)
-                                                Non publié
+                                                <span class="badge badge-secondary " > Non publié  </span>
                                             @elseif($event->publish == 1)
-                                                Publié
+                                                <span class="badge badge-success " > Publié </span> 
                                             @endif
                                         </td>
                                         <td class="parent ">

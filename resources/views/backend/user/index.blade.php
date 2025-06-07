@@ -14,9 +14,10 @@
                 <div class="x_content">
                     <br />
                     <div class="table-responsive">
-                        <table id="example" class="table table-striped table-bordered display">
+                        <table id="example" class="table table-striped table-bordered ">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Nom</th>
                                     <th>E-mail</th>
                                     <th>District</th>
@@ -28,6 +29,7 @@
                             <tbody>
                                 @foreach ($users as $user)
                                     <tr>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $user->getFullName() }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>
@@ -38,7 +40,7 @@
                                         <td>
                                             {{ $user->role->name }}
                                         </td>
-                                        <td class="parent">
+                                        <td class="parent text-center">
                                             @if (Auth::user()->id != $user->id && Auth::user()->role_id == 1)
                                             <a href="{{ route('user.edit', $user->id) }}"
                                                 class="btn btn-sm btn-warning "><span
@@ -67,5 +69,5 @@
     </div>
 @endsection
 @section('autres_scripts')
-    {{-- {{-- @include('layouts/partials/_data_table_simple') --}}
+    @include('includes.data_table_simple')
 @endsection

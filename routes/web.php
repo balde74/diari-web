@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DistrictController;
@@ -35,6 +36,7 @@ Route::middleware('auth')->group(function()
     Route::resource('partner',PartnerController::class);
     Route::resource('documentation',DocumentationController::class);
     Route::resource('carousel',CarouselController::class);
+    Route::resource('project',ProjectController::class);
     Route::resource('post',PostController::class);
     Route::resource('section',SectionController::class);
 

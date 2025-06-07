@@ -20,8 +20,8 @@ Affichage
 					{!! $district->presentation!!}
                     <hr>
                     <div class="text-center">
-						<a class="btn-sm" style="margin-right: 10%" href="{{ route('district.index') }}"> <i class="fa fa-arrow-left"></i> Liste des districts</a>
-                      	<a class="btn-sm" href="{{ route('district.edit',$district->id) }}"> <i class="fa fa-edit"></i> Editer </a>
+						<a class="btn btn-sm" style="margin-right: 10%" href="{{ route('district.index') }}"> <i class="fa fa-arrow-left"></i> Liste des districts</a>
+                      	<a class="btn btn-sm" href="{{ route('district.edit',$district->id) }}"> <i class="fa fa-edit"></i> Editer </a>
                       {{-- <a href="{{ route('district.destroy',$district->id) }}"> <i class="fa fa-trash"></i>supprimer</a> --}}
                     </div>
                     

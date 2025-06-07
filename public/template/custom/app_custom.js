@@ -4,7 +4,7 @@ $(document).ready(function()
 	$('.supprimer').on('click',function()
 	{
 		Swal.fire({
-		  title: 'êtes vous sûre ?',
+		  title: 'Confirmer la suppression ?',
 		  icon: 'question',
 		  showCancelButton: true,
 		  confirmButtonColor: '#3085d6',

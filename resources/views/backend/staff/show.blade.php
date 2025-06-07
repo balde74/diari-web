@@ -27,8 +27,8 @@
                             <div class="mt-2">
                                 {{-- <h2 class="text-2xl font-bold mb-1">{{ $staff->name }}</h2> --}}
                                 <p class="">{{ $staff->position }} — {{ $staff->department }}</p>
-                                <p class="text-sm ">Started on
-                                    {{ \Carbon\Carbon::parse($staff->start_date)->format('d-m-Y') }}</p>
+                                <p class="text-sm ">Depuis 
+                                    {{ \Carbon\Carbon::parse($staff->start_date)->format('m-Y') }}</p>
                             </div>
 
                             <div class="mt-4">
@@ -52,7 +52,7 @@
                             <div class="col">
                                 <div class="mt-1">
                                     <h3 class="font-semibold">Bibliographie</h3>
-                                    <p class="text-justify">{{ $staff->bio }}</p>
+                                    <p class="text-justify" style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;" >{{ $staff->bio }}</p>
                                 </div>
                             </div>
 

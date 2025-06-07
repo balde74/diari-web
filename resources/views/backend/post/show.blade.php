@@ -19,15 +19,20 @@ Détail d'un article
 							<img src="{{ asset('documents/'.$post->image) }}" class="" alt="image de l'post" width="100%" >
 							@endif
 							<br/>
-							{{ $post->introduction }}
+							<div style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;">
+								{{ $post->introduction }}
+							</div>
 
 						@foreach ($post->sections->sortBy('position') as $section)
 							
 							@if ($section->image)
-								<img src="{{ asset('documents/'.$section->image) }}" class="" alt="image de la section" width="100%" >
+								<img src="{{ asset('documents/'.$section->image) }}" class="img-fluid no-border" alt="image de la section" width="100%" >
 								<br/><br/>
 							@endif
-							{!! $section->content !!}
+							<div style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;">
+								{!! $section->content !!}
+
+							</div>
 							<br/><br/>
 						@endforeach
 
@@ -42,10 +47,10 @@ Détail d'un article
 	                <h4 class="text-center">
 	                  {{-- <i class="fa fa-comments"></i> Commentaires ({{$post->commentaires->count()}}) &nbsp;&nbsp; --}}
 	                  	{{-- <a href="{{ route('post.edit',$post->id) }}"><i class="fa fa-pencil-square"></i> Modifier &nbsp;&nbsp;</a> --}}
-					  	<a class="btn-sm" style="margin-right: 10%" href="{{ route('post.index') }}"> <i class="fa fa-arrow-left"></i> Liste des articles</a>
+					  	<a class=" btn btn-sm" style="margin-right: 10%" href="{{ route('post.index') }}"> <i class="fa fa-arrow-left"></i> Liste des articles</a>
 						@if (Auth::user()->id == $post->user_id || Auth::user()->role->id == 1 || Auth::user()->role->id == 2)
-						<a class="btn-sm" style="margin-right: 10%" href="{{ route('post.edit',$post->id) }}"> <i class="fa fa-edit"></i> Editer </a>
-						<a href="{{ route('section', $post->id) }}" class="btn-sm "><span class="fa fa-align-justify"></span> Section </a>
+						<a class=" btn btn-sm" style="margin-right: 10%" href="{{ route('post.edit',$post->id) }}"> <i class="fa fa-edit"></i> Editer </a>
+						<a href="{{ route('section', $post->id) }}" class=" btn btn-sm "><span class="fa fa-align-justify"></span> Section </a>
 						@endif
 	                </h4>
 

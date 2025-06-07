@@ -21,6 +21,7 @@
                         <table id="example" class="table table-striped table-bordered text-center">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Date</th>
                                     <th>Titre</th>
                                     <th>Direction</th>
@@ -33,6 +34,7 @@
                             <tbody>
                                 @foreach ($posts as $post)
                                     <tr>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>
                                             @php
                                                 $date = date_create($post->created_at);
@@ -50,9 +52,9 @@
 
                                         <td>
                                             @if ($post->publish == 0)
-                                                Non publié
+                                            <span class="badge badge-secondary " > Non publié </span>
                                             @elseif($post->publish == 1)
-                                                Publié
+                                            <span class="badge badge-success"> Publié </span>
                                             @endif
                                         </td>
 										<td>
@@ -69,6 +71,8 @@
                                                     @elseif($post->publish == 1)
                                                         <a href="{{ route('publish_post', $post->id) }} " class="btn btn-sm btn-warning "> <span class="fa fa-eye-slash"></span> Masquer</a>
                                                     @endif
+
+                                                   
                                          
                                                  <a href="{{ route('section', $post->id) }}"
                                                     class="btn btn-sm btn-secondary"><span class="fa fa-align-justify"></span> Section ({{ $post->sections->count() }}) </a>

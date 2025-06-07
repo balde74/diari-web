@@ -27,7 +27,7 @@ $('.summernote').summernote({
            callbacks: {
             onInit: function () {
               // Définir la taille de police par défaut
-              $(this).summernote('fontSize', 30);
+              $(this).summernote('fontSize', 16);
             }
           },
           // uploadcare: {

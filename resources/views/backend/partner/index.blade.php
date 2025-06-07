@@ -23,6 +23,7 @@
                         <table id="example" class="table table-striped table-bordered display text-center">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Image</th>
                                     <th>Nom</th>
                                     <th>acronyme</th>
@@ -34,7 +35,8 @@
                             <tbody>
                                 @foreach ($partners as $partner)
                                     <tr>
-                                        <td> <img src="{{ asset('documents/' . $partner->image) }}" alt="image" style="width:100px;"> </td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td> <img src="{{ asset('documents/' . $partner->image) }}" alt="image" width="60" height="60"> </td>
                                         <td> {{ $partner->name }} </td>
 
                                         <td>  {{ $partner->acronym }} </td>

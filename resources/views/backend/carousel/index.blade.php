@@ -22,21 +22,23 @@ Liste des carousels
 				<table id="example" class="table table-striped table-bordered display text-center">
 				<thead>
 					<tr>
-					<th>Image</th>
-					<th>Introduction</th>
-					<th>Lien</th>
-					@if (Auth::user()->role->id == 1 || Auth::user()->role->id == 2)
-						<th>District</th>
-					@endif
-					<th>Action</th>
+						<th>#</th>
+						<th>Image</th>
+						<th>Introduction</th>
+						<th>Lien</th>
+						@if (Auth::user()->role->id == 1 || Auth::user()->role->id == 2)
+							<th>District</th>
+						@endif
+						<th>Action</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					@foreach ($carousels as $carousel)
 					<tr>
+						<td>{{ $loop->iteration }}</td>
 						<td >
-							<img src="{{ asset('documents/'.$carousel->image) }}" alt="image" style="width:100px;">
+							<img src="{{ asset('documents/'.$carousel->image) }}" alt="image" width="60" height="60">
 						</td>
 						
 					<td>{{ $carousel->description }}</td>
@@ -53,8 +55,8 @@ Liste des carousels
 					@endif
 						
 						<td class="parent">
-						<a href="{{ route('carousel.edit',$carousel->id) }}" class="btn btn-sm btn-warning">Modifier</a>
-						<a href="#" class="btn btn-sm btn-danger supprimer">Supprimer</a>
+						<a href="{{ route('carousel.edit',$carousel->id) }}" class="btn btn-sm btn-warning "><span class="fa fa-pencil"></span> Editer</a>
+						<a href="#"  class="btn btn-sm btn-danger supprimer"> <span class="fa fa-trash"></span> Supprimer</a>
 							<form action="{{ route('carousel.destroy',$carousel->id) }}" method="post" class="form_suppression">
 								@csrf
 								@method('DELETE')
