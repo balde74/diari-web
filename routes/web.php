@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
@@ -39,6 +40,7 @@ Route::middleware('auth')->group(function()
     Route::resource('project',ProjectController::class);
     Route::resource('post',PostController::class);
     Route::resource('section',SectionController::class);
+    Route::resource('page', PageController::class);
 
     Route::get('post/{id}/section',[PostController::class,'section'])->name('section');
     Route::get('section/{id}/create',[SectionController::class,'new_section'])->name('section_create');
@@ -47,6 +49,7 @@ Route::middleware('auth')->group(function()
     //status des status des events et post
     Route::get('event/{id}/action',[EventController::class,'publish'])->name('publish_event');
     Route::get('post/{id}/action',[PostController::class,'publish'])->name('publish_post');
+    Route::get('page/{id}/action',[PageController::class,'publish'])->name('publish_page');
 
 
 });

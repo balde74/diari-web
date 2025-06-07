@@ -26,10 +26,18 @@
                 <h3>General</h3>
 
                 <ul class="nav side-menu">
+
                     <li><a><i class="fa fa-home"></i> Districts <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('district.index') }}">Liste des districts</a></li>
                             {{-- <li><a href="{{ route('district.create') }}">Nouveau district</a></li> --}}
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-book"></i> Pages <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ route('page.index') }}">Liste des pages</a></li>
+                            <li><a href="{{ route('page.create') }}">Nouvelle page</a></li>
                         </ul>
                     </li>
 

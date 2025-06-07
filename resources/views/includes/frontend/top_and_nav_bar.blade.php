@@ -109,11 +109,9 @@
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">présentation <i
                                             class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
+
                                         <li><a href="about.html">About Us</a></li>
-                                        <li><a href="team.html">Our People</a></li>
-                                        <li><a href="testimonials.html">Testimonials</a></li>
-                                        <li><a href="faq.html">Faq</a></li>
-                                        <li><a href="pricing.html">Pricing</a></li>
+                                       
                                     </ul>
                                 </li>
 
@@ -122,7 +120,7 @@
                                         <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="projects.html">Projects All</a></li>
-                                        <li><a href="projects-single.html">Projects Single</a></li>
+                                       
                                     </ul>
                                 </li>
 
@@ -131,8 +129,9 @@
                                     <a href="#" class="nav-link dropdown-toggle"
                                         data-toggle="dropdown">Projets <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="typography.html">Typography</a></li>
-                                        <li><a href="404.html">404</a></li>
+                                        <li><a href="typography.html">Projet en cours</a></li>
+                                        <li><a href="typography.html">Réalisations</a></li>
+                                        {{-- <li><a href="404.html">404</a></li>
                                         <li class="dropdown-submenu">
                                             <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Parent
                                                 Menu</a>
@@ -141,7 +140,7 @@
                                                 <li><a href="#!">Child Menu 2</a></li>
                                                 <li><a href="#!">Child Menu 3</a></li>
                                             </ul>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </li>
 
@@ -149,9 +148,8 @@
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Actualités <i
                                             class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="news-left-sidebar.html">News Left Sidebar</a></li>
-                                        <li><a href="news-right-sidebar.html">News Right Sidebar</a></li>
-                                        <li><a href="news-single.html">News Single</a></li>
+                                        <li><a href="news-left-sidebar.html">Actualités</a></li>
+                                        <li><a href="news-right-sidebar.html">Evénements</a></li>
                                     </ul>
                                 </li>
 
@@ -160,8 +158,8 @@
                                     <a href="#" class="nav-link dropdown-toggle"
                                         data-toggle="dropdown">Districts <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
+
                                         <li><a href="services.html">Services All</a></li>
-                                        <li><a href="service-single.html">Services Single</a></li>
                                     </ul>
                                 </li>
 

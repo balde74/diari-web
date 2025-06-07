@@ -95,7 +95,7 @@
                 <div class="item form-group">
                     <div class="col-md-8 col-sm-8 offset-md-3">
                         <button type="submit" class=" btn-sm btn-block btn-success"><span
-                            class="fa fa-trash"></span> Enregistrer</button>
+                            class="fa fa-save"></span> Enregistrer</button>
                     </div>
                 </div>
 

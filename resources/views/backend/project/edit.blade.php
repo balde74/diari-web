@@ -148,7 +148,7 @@
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-8 col-sm-8 offset-md-3">
-                                <button type="submit" class="btn-sm btn-block btn-success">Mettre à jour</button>
+                                <button type="submit" class="btn-sm btn-block btn-success">Enregistrer</button>
                             </div>
                         </div>
                     </form>

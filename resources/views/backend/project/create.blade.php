@@ -69,7 +69,7 @@
                                     <option value="prévu" {{ old('status') == 'prévu' ? 'selected' : '' }}>Prévu</option>
                                     <option value="en cours" {{ old('status') == 'en cours' ? 'selected' : '' }}>En cours
                                     </option>
-                                    <option value="terminé" {{ old('status') == 'terminé' ? 'selected' : '' }}>Terminé
+                                    <option value="realisé" {{ old('status') == 'realisé' ? 'selected' : '' }}>Réalisé
                                     </option>
                                 </select>
                                 @error('status')
