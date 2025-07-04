@@ -49,7 +49,7 @@
                                             @switch($project->status)
                                                 @case('prévu') <span class="badge badge-secondary">Prévu</span> @break
                                                 @case('en cours') <span class="badge badge-warning">En cours</span> @break
-                                                @case('terminé') <span class="badge badge-success">Terminé</span> @break
+                                                @case('realisé') <span class="badge badge-success">Réalisé</span> @break
                                             @endswitch
                                         </td>
                                         <td>{{ number_format($project->budget, 0, ',', ' ') }} GNF</td>

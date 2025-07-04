@@ -33,6 +33,18 @@
   <!-- Template styles-->
   <link rel="stylesheet" href="{{ asset('template-front/css/style.css')}}">
 
+  <style>
+    #banner-area .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Noir avec opacité à 40% */
+    z-index: 1;
+}
+  </style>
+
 </head>
 <body>
   <div class="body-inner">

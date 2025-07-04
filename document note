@@ -5,6 +5,9 @@
 
 -gestion des roles (en lien avec les acces)
 -gestion des utilisateurs (modif, et autres)
+-validation de parentzone dans pageController
+-uniformiser le style du texte (taille et couleur)
+-ajouter slug dans event table
 
 
 Question:
@@ -17,7 +20,8 @@ presentation
 services
 
 
-projet - liaison avec les partenaires
+projet - liaison avec les partenaires (remplacer terminer par realiser)
 Actualite
 documentation
 Districts
+

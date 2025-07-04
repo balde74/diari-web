@@ -42,7 +42,7 @@
                             <div class="col-md-8 col-sm-8 ">
                                 <select id="" class="select2_single form-control  {{ $errors->has('parent_zone') ? ' is-invalid' : '' }}" tabindex="-1" name="parent_zone" >  
                                     <option value="présentation">Présentation</option>
-                                    <option value="service">Service</option>
+                                    <option value="services">Services</option>
                               </select>
                                 @if ($errors->has('parent_zone'))
                                   <span class="invalid-feedback" role="alert">
@@ -52,12 +52,6 @@
                             </div>
                           
                         </div>
-
-                        
-
-                     
-
-
 
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-8 mx-auto mt-2">
@@ -71,7 +65,7 @@
 
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align"
-                                for="description">Description</label>
+                                for="description">Contenu</label>
                             <div class="col-md-8 col-sm-8 ">
                                 <textarea name="content" required="required"
                                     class="form-control summernote {{ $errors->has('content') ? ' is-invalid' : '' }}" cols="30" rows="5"

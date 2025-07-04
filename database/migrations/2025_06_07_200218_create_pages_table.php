@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->string('slug');
             $table->longText('content')->nullable();
-            $table->enum('parent_zone', ['présentation', 'service']);
+            $table->enum('parent_zone', ['présentation', 'services']);
             $table->boolean('publish')->default(false);
             $table->timestamps();
         });

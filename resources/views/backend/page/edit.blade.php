@@ -73,7 +73,7 @@
 
                         {{-- Description --}}
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Description</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Contenu</label>
                             <div class="col-md-8 col-sm-8 ">
                                 <textarea name="content" required class="form-control summernote {{ $errors->has('content') ? ' is-invalid' : '' }}"
                                     cols="30" rows="5" style="resize: none;">{{ old('content', $page->content) }}</textarea>

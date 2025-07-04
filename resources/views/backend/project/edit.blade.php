@@ -76,8 +76,8 @@
                                     <option value="en cours"
                                         {{ old('status', $project->status) == 'en cours' ? 'selected' : '' }}>En cours
                                     </option>
-                                    <option value="terminé"
-                                        {{ old('status', $project->status) == 'terminé' ? 'selected' : '' }}>Terminé
+                                    <option value="realisé"
+                                        {{ old('status', $project->status) == 'realisé' ? 'selected' : '' }}>Réalisé
                                     </option>
                                 </select>
                                 @error('status')

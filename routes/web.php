@@ -12,6 +12,7 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\DocumentationController;
+use App\Http\Controllers\Frontend\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,9 @@ Route::middleware('auth')->group(function()
 Auth::routes(['register'=> false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('pages/{slug}',[HomeController::class,'pageShow'])->name('page_show');
+Route::get('posts/{slug}',[HomeController::class,'postShow'])->name('post_show');
+Route::get('evenements/{id}',[HomeController::class,'eventShow'])->name('event_show'); //mettre a jour pour utiliser le slug a la place de l'ID
+Route::get('projet/{slug}',[HomeController::class,'projectShow'])->name('project_show');
+

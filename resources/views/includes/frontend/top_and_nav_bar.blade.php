@@ -97,30 +97,31 @@
 
                         <div id="navbar-collapse" class="collapse navbar-collapse">
                             <ul class="nav navbar-nav mr-auto">
-                                <li class="nav-item dropdown active">
-                                    <a href="jdjd" class="nav-link dropdown-toggle">ACCUEIL </a>
+                                <li class="nav-item dropdown {{ request()->is('/') ? 'active' : ''}}">
+                                    <a href="/" class="nav-link dropdown-toggle">ACCUEIL </a>
                                     {{-- <ul class="dropdown-menu" role="menu">
                                         <li class="active"><a href="index.html">Home One</a></li>
                                         <li><a href="index-2.html">Home Two</a></li>
                                     </ul> --}}
                                 </li>
 
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown {{ isset($page) && $page->parent_zone == 'présentation' ? 'active' : '' }}">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">présentation <i
                                             class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
-
-                                        <li><a href="about.html">About Us</a></li>
-                                       
+                                        @foreach ($pages->where('parent_zone', 'présentation') as $presentationPage)
+                                            <li><a href="{{ route('page_show',$presentationPage->slug) }}">{{ $presentationPage->title }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
 
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown {{ isset($page) && $page->parent_zone == 'services' ? 'active' : '' }} ">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services
                                         <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="projects.html">Projects All</a></li>
-                                       
+                                        @foreach ($pages->where('parent_zone', 'services') as $servicePage)
+                                            <li><a href="{{ route('page_show',$servicePage->slug) }}">{{ $servicePage->title }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
 
@@ -149,7 +150,7 @@
                                             class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="news-left-sidebar.html">Actualités</a></li>
-                                        <li><a href="news-right-sidebar.html">Evénements</a></li>
+                                        <li><a href="news-right-sidebar.html">évènements</a></li>
                                     </ul>
                                 </li>
 
@@ -158,8 +159,9 @@
                                     <a href="#" class="nav-link dropdown-toggle"
                                         data-toggle="dropdown">Districts <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
-
-                                        <li><a href="services.html">Services All</a></li>
+                                        @foreach ($districts as $district)
+                                            <li><a href="#">{{ $district->name }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
 

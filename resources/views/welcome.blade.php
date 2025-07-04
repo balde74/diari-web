@@ -1,6 +1,6 @@
 @extends('layouts.main-frontend-layout')
 @section('title')
-    kdfk
+    Accueil
 @endsection
 
 @section('content')
