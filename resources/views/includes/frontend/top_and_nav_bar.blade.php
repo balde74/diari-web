@@ -126,12 +126,12 @@
                                 </li>
 
 
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown {{ request()->is('projects/*') ? 'active' : '' }}">
                                     <a href="#" class="nav-link dropdown-toggle"
                                         data-toggle="dropdown">Projets <i class="fa fa-angle-down"></i></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="typography.html">Projet en cours</a></li>
-                                        <li><a href="typography.html">Réalisations</a></li>
+                                    <ul class="dropdown-menu " role="menu">
+                                        <li><a href="{{ route('projects_by_status','en-cours') }}">En cours</a></li>
+                                        <li><a href="{{ route('projects_by_status','realisations') }}">Réalisations</a></li>
                                         {{-- <li><a href="404.html">404</a></li>
                                         <li class="dropdown-submenu">
                                             <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Parent

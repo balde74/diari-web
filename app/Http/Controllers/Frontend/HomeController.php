@@ -1,13 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Controllers\Controller;
+use App\Models\Event;
 use App\Models\Page;
 use App\Models\Post;
-use App\Models\Event;
 use App\Models\Project;
-use App\Http\Controllers\Controller;
-
 
 class HomeController extends Controller
 {
@@ -23,14 +21,13 @@ class HomeController extends Controller
     //     if (!$ip_existe) {
     //         $visite = new Visite;
     //         $visite->create([ 'adresse_ip'=>$ip,]);
-    //     } 
+    //     }
 
     //     $articles = Article::orderBy('created_at','desc')->where('status',1)->get();
     //     $evenements = Evenement::orderBy('date','asc')->where('status',1)->get();
     //     $caroussels = Caroussel::where('direction_id',Null)->orderBy('created_at','desc')->get();
     //     $partenaires = Partenaire::all();
     //     $videos = Video::all();
-
 
     //     return view('welcome',compact('articles','evenements','caroussels','partenaires','videos'));
     // }
@@ -58,97 +55,120 @@ class HomeController extends Controller
     //    return view('frontend/evenement/show',compact('evenement','articles_recents','evenements_recents'));
     // }
 
-
     public function pageShow($slug)
     {
-      $page = Page::where('slug',$slug)->firstOrFail();
-      return view('frontend/page/show',compact('page'));
+        $page = Page::where('slug', $slug)->firstOrFail();
+        return view('frontend/page/show', compact('page'));
     }
 
     public function postShow($slug)
     {
-      $post = Post::where('slug',$slug)->first();
-      dd($post);
-      return view('frontend/page/show',compact('post'));
+        $post = Post::where('slug', $slug)->first();
+        dd($post);
+        return view('frontend/page/show', compact('post'));
     }
 
-   public function eventShow($id)
-   {
-      $event = Event::findOrFail($id);
-      dd($event);
-      return view('frontend/page/show',compact('post'));
-   }
+    public function eventShow($id)
+    {
+        $event = Event::findOrFail($id);
+        dd($event);
+        return view('frontend/page/show', compact('post'));
+    }
 
-   public function projectShow($slug)
-   {
-     $project = Project::where('slug',$slug)->first();
-     dd($project);
-     return view('frontend/page/show',compact('post'));
-   }
+    public function projectShow($slug)
+    {
+        $project = Project::where('slug', $slug)->first();
+        dd($project);
+        return view('frontend/page/show', compact('post'));
+    }
+
+    public function projectsByStatus($status)
+    {
+        // Sécuriser le status accepté
+        $allowedStatuses = ['realisations', 'en-cours'];
+
+        if (!in_array($status, $allowedStatuses)) {
+            abort(404);
+        }
+        if ($status == 'realisations') {
+            $projects = Project::where('status', 'realisé')->get();
+            // dynamisation de l'onglet dans banner
+            $page = (object) [
+                'parent_zone' => 'Projets',
+                'title' => 'réalisations'
+            ];
+        }else{
+            $projects = Project::where('status','<>', 'realisé')->get();
+            $page = (object)[
+                'parent_zone' => 'Projets',
+                'title' => 'En cours'
+            ];
+        }
+        
+        return view('frontend/projects/show', compact('projects','page'));
+    }
 
     public function documentationShow()
     {
         $documentations = Documentation::all();
 
-        $articles_recents = Article::orderBy('created_at','desc')->where('status',1)->take('4')->get();
-        $evenements_recents = Evenement::orderBy('date','asc')->where('status',1)->take('4')->get();
-       return view('frontend/documentation/show',compact('documentations','articles_recents','evenements_recents'));
+        $articles_recents   = Article::orderBy('created_at', 'desc')->where('status', 1)->take('4')->get();
+        $evenements_recents = Evenement::orderBy('date', 'asc')->where('status', 1)->take('4')->get();
+        return view('frontend/documentation/show', compact('documentations', 'articles_recents', 'evenements_recents'));
 
     }
 
     public function article_plusShow()
     {
-       $articles = Article::orderBy('created_at','desc')->where('status',1)->paginate(10);
+        $articles = Article::orderBy('created_at', 'desc')->where('status', 1)->paginate(10);
 
         // $articles_recents = Article::orderBy('created_at','desc')->where('status',1)->take('4')->get();
-       $articles_recents = null;
-        $evenements_recents = Evenement::orderBy('date','asc')->where('status',1)->take('4')->get();
-       return view('frontend/article_plus/show',compact('articles','articles_recents','evenements_recents'));
+        $articles_recents   = null;
+        $evenements_recents = Evenement::orderBy('date', 'asc')->where('status', 1)->take('4')->get();
+        return view('frontend/article_plus/show', compact('articles', 'articles_recents', 'evenements_recents'));
 
     }
 
     public function evenement_plusShow()
     {
-       $evenements = Evenement::orderBy('created_at','desc')->where('status',1)->paginate(10);
+        $evenements = Evenement::orderBy('created_at', 'desc')->where('status', 1)->paginate(10);
 
-        $articles_recents = Article::orderBy('created_at','desc')->where('status',1)->take('4')->get();
+        $articles_recents = Article::orderBy('created_at', 'desc')->where('status', 1)->take('4')->get();
         // $evenements_recents = Evenement::orderBy('date','asc')->where('status',1)->take('4')->get();
         $evenements_recents = null;
-       return view('frontend/evenement_plus/show',compact('evenements','evenements_recents','articles_recents'));
+        return view('frontend/evenement_plus/show', compact('evenements', 'evenements_recents', 'articles_recents'));
 
     }
 
-    
-
-     public function article_direction_plusShow(Direction $id)
+    public function article_direction_plusShow(Direction $id)
     {
-        $direction = $id;
-         $articles = Article::orderBy('created_at','desc')->where('status',1)->where('direction_id',$direction->id)->paginate(10);
+        $direction        = $id;
+        $articles         = Article::orderBy('created_at', 'desc')->where('status', 1)->where('direction_id', $direction->id)->paginate(10);
         $articles_recents = null;
-       // $articles_recents = Article::orderBy('created_at','desc')->where('status',1)->take('4')->get();
-        $evenements_recents = Evenement::orderBy('date','asc')->where('status',1)->take('4')->get();
-       return view('frontend/article_direction_plus/show',compact('articles','articles_recents','evenements_recents','direction'));
+        // $articles_recents = Article::orderBy('created_at','desc')->where('status',1)->take('4')->get();
+        $evenements_recents = Evenement::orderBy('date', 'asc')->where('status', 1)->take('4')->get();
+        return view('frontend/article_direction_plus/show', compact('articles', 'articles_recents', 'evenements_recents', 'direction'));
 
     }
 
-     public function evenement_direction_plusShow(Direction $id)
+    public function evenement_direction_plusShow(Direction $id)
     {
-        $direction = $id;
-         $evenements = Evenement::orderBy('created_at','desc')->where('status',1)->where('direction_id',$direction->id)->paginate(10);
+        $direction          = $id;
+        $evenements         = Evenement::orderBy('created_at', 'desc')->where('status', 1)->where('direction_id', $direction->id)->paginate(10);
         $evenements_recents = null;
-       $articles_recents = Article::orderBy('created_at','desc')->where('status',1)->take('4')->get();
+        $articles_recents   = Article::orderBy('created_at', 'desc')->where('status', 1)->take('4')->get();
         // $evenements_recents = Evenement::orderBy('date','asc')->where('status',1)->take('4')->get();
-       return view('frontend/evenement_direction_plus/show',compact('evenements','articles_recents','evenements_recents','direction'));
+        return view('frontend/evenement_direction_plus/show', compact('evenements', 'articles_recents', 'evenements_recents', 'direction'));
 
     }
 
     public function video_plusShow()
     {
-        $videos = Video::orderBy('created_at','desc')->paginate(3);
+        $videos = Video::orderBy('created_at', 'desc')->paginate(3);
 
-        $articles_recents = Article::orderBy('created_at','desc')->where('status',1)->take('4')->get();
-        $evenements_recents = Evenement::orderBy('date','asc')->where('status',1)->take('4')->get();
-       return view('frontend/video_plus/show',compact('videos','evenements_recents','articles_recents'));
+        $articles_recents   = Article::orderBy('created_at', 'desc')->where('status', 1)->take('4')->get();
+        $evenements_recents = Evenement::orderBy('date', 'asc')->where('status', 1)->take('4')->get();
+        return view('frontend/video_plus/show', compact('videos', 'evenements_recents', 'articles_recents'));
 
     }
 }

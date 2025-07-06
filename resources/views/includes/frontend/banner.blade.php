@@ -6,12 +6,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="banner-heading">
-                        <h1 class="banner-title">{{ $page->title }}</h1>
+                        <h1 class="banner-title">{{ $page->title??'' }}</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center ">
                                 <li class="breadcrumb-item"><a href="#"> Accueil</a></li>
-                                <li class="breadcrumb-item"><a href="#"> {{ $page->parent_zone }}</a></li>
-                                <li class="breadcrumb-item"><a href="#">{{ $page->title }}</a></li>
+                                <li class="breadcrumb-item"><a href="#"> {{ $page->parent_zone??'' }}</a></li>
+                                <li class="breadcrumb-item"><a href="#">{{ $page->title??'' }}</a></li>
                             </ol>
                         </nav>
                     </div>

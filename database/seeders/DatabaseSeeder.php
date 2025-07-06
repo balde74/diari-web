@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Staff;
 use App\Models\Partner;
+use App\Models\Project;
 use App\Models\District;
 use Faker\Factory as Faker;
 use Illuminate\Support\Str;
@@ -20,21 +21,26 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create('fr_FR');
         // \App\Models\User::factory(10)->create();
-        Post::truncate(); // vide la table districts
+        Project::truncate(); // vide la table districts
         // \App\Models\District::factory()->count(10)->create();
 
         $users     = User::where('role_id', '<>', 1)->get();
-        $districts = District::all();
+        // $districts = District::all();
         // Créer 10 événements
         for ($i = 0; $i < 10; $i++) {
             $title = $faker->sentence(6, true);
-            Post::create([
+    
+            Project::create([
                 'title' => $title,
-                // 'image' => $faker->optional()->image('public/documents', 640, 480, null, false), // génère une image dans public/documents
-                'introduction' => $faker->paragraphs(3, true),
-                'slug' => Str::slug($title) . '-' . Str::random(5), // assure unicité du slug
-                'publish' => $faker->boolean(70), // 70% des posts sont publiés
-                'district_id' => $districts->random()->id ?? null,
+                'slug' => Str::slug($title) . '-' . Str::random(5),
+                'description' => $faker->paragraphs(14, true),
+                'start_date' => $faker->dateTimeBetween('-1 year', 'now'),
+                'end_date' => $faker->dateTimeBetween('now', '+1 year'),
+                'status' => $faker->randomElement(['prévu', 'en cours', 'realisé']),
+                'budget' => $faker->randomFloat(2, 1000000, 50000000),
+                // décommente si tu veux vraiment créer une image factice
+                // 'image' => $faker->image('public/documents', 640, 480, null, false), 
+                // 'image' => $faker->randomElement(['project1.jpg', 'project2.jpg', 'project3.jpg', null]),
                 'user_id' => $users->random()->id,
             ]);
         }

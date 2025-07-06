@@ -1,17 +1,17 @@
 @extends('layouts.main-frontend-layout')
 @section('title')
-{{ $page->slug }}
+    {{ $page->title }}
 @endsection
 @section('content')
+    @include('includes.frontend.banner')
+    <section id="main-container" class="main-container pb-2">
 
-@include('includes.frontend.banner')
-
-        <div class="container mt-2">
+        <div class="container ">
             <div class="row">
 
-                 @include('includes.frontend.left_sidebar')
+                @include('includes.frontend.left_sidebar')
 
-                <div class="col-lg-9 mb-5 mb-lg-0 order-0 order-lg-1" >
+                <div class="col-lg-9 mb-5 mb-lg-0 order-0 order-lg-1">
                     <div class="post">
                         <div class="post-body">
                             {{-- <div class="entry-header">
@@ -38,7 +38,7 @@
                                 </p>
                             </div>
 
-                          
+
 
                         </div><!-- post-body end -->
                     </div><!-- 1st post end -->
@@ -47,12 +47,12 @@
 
                 </div><!-- Content Col end -->
 
-                
+
 
             </div><!-- Main row end -->
 
 
-        @include('includes.frontend.team')
+            @include('includes.frontend.team')
         </div><!-- Container end -->
     </section><!-- Main container end -->
 @endsection
