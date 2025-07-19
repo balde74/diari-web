@@ -1,6 +1,6 @@
 @extends('layouts.main-frontend-layout')
 @section('title')
-    {{ $page->title }}
+    Documentations
 @endsection
 @section('content')
     @include('includes.frontend.banner')
