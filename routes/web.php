@@ -65,6 +65,7 @@ Route::get('projet/{slug}',[HomeController::class,'projectShow'])->name('project
 Route::get('realisations',[HomeController::class,'projects'])->name('projects');
 Route::get('communiqués',[HomeController::class,'posts'])->name('posts');
 Route::get('évènements',[HomeController::class,'events'])->name('events');
+Route::get('documentations',[HomeController::class,'documentations'])->name('documentation');
 // Route::get('en-cours-de-realisations',[HomeController::class,'projects'])->name('projects');
 // web.php
 Route::get('/projects/{status}', [HomeController::class, 'projectsByStatus'])->name('projects_by_status');

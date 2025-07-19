@@ -31,11 +31,14 @@ class DocumentationController extends Controller
     {
         $request->validate([
             'file'=>'required|mimes:pdf',
-            'title' => 'required|min:3'
+            'title' => 'required|min:3',
+            'description' => 'required|min:50'
         ]);
 
-       $doc = new Documentation;
-       $doc->title = $request->title;
+        $doc = new Documentation;
+        $doc->title = $request->title;
+        $doc->description = $request->description;
+
        $doc -> save();
 
         if ($request->file) {
@@ -71,11 +74,13 @@ class DocumentationController extends Controller
     {
         $request->validate([
             'file'=>'sometimes|mimes:pdf',
-            'title' => 'required|min:3'
+            'title' => 'required|min:3',
+            'description'=>'required|min:50'
         ]);
 
         $doc = $documentation;
         $doc->title = $request->title;
+        $doc->description = $request->description;
         $doc-> save();
 
         if ($request->file) {

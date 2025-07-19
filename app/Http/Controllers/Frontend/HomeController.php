@@ -1,11 +1,12 @@
 <?php
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use App\Models\Event;
 use App\Models\Page;
 use App\Models\Post;
+use App\Models\Event;
 use App\Models\Project;
+use App\Models\Documentation;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -128,13 +129,15 @@ class HomeController extends Controller
         return view('frontend.events.all',compact('events','page'));
     }
 
-    public function documentationShow()
+    public function documentations()
     {
         $documentations = Documentation::all();
+         $page = (object)[
+                'parent_zone' => 'Documentation',
+                'title' => ''
+            ];
 
-        $articles_recents   = Article::orderBy('created_at', 'desc')->where('status', 1)->take('4')->get();
-        $evenements_recents = Evenement::orderBy('date', 'asc')->where('status', 1)->take('4')->get();
-        return view('frontend/documentation/show', compact('documentations', 'articles_recents', 'evenements_recents'));
+        return view('frontend/documentation/show', compact('documentations','page'));
 
     }
 

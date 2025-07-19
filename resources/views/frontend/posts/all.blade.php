@@ -26,9 +26,6 @@
                             <div>
                                 <h3 class="service-box-title"><a href="service-single.html">{{ Str::limit($post->title,50,'...') }}</a></h3>
                                 <p class="text-justify"> {!! Str::limit($post->introduction, 200, '...') !!} </p>
-                                <p>
-                                  
-                                </p>
                                 <a class="learn-more d-inline-block" href="service-single.html" aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
                             </div>
                         </div>

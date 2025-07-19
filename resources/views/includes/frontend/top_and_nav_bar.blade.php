@@ -155,7 +155,7 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Documentation</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('documentation') }}">Documentation</a></li>
                                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                             </ul>
                         </div>
