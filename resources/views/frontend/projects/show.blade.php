@@ -23,8 +23,8 @@
                         {{-- <div class="ts-service-box-img">
                             <img loading="lazy" src="images/icon-image/service-icon1.png" alt="service-icon">
                         </div> --}}
-                        <div class="ts-service-info">
-                            <h3 class="service-box-title"><a href="service-single.html">{{ Str::limit($project->title,25,'...') }}</a></h3>
+                        <div >
+                            <h3 class="service-box-title"><a href="service-single.html">{{ Str::limit($project->title,50,'...') }}</a></h3>
                             {{-- <p> {!! Str::limit($project->description, 500, ' ...') !!} </p> --}}
                             <p>
                                 <span class="badge 
@@ -45,6 +45,9 @@
             @endforeach
           
                
+        </div>
+        <div class="d-flex justify-content-center my-4">
+            {{ $projects->links() }}
         </div>
 
 

@@ -91,14 +91,14 @@ class HomeController extends Controller
             abort(404);
         }
         if ($status == 'realisations') {
-            $projects = Project::where('status', 'realisé')->get();
+            $projects = Project::where('status', 'realisé')->orderBy('created_at','desc')->paginate(9);
             // dynamisation de l'onglet dans banner
             $page = (object) [
                 'parent_zone' => 'Projets',
                 'title' => 'réalisations'
             ];
         }else{
-            $projects = Project::where('status','<>', 'realisé')->get();
+            $projects = Project::where('status','<>', 'realisé')->orderBy('created_at','desc')->paginate(9);
             $page = (object)[
                 'parent_zone' => 'Projets',
                 'title' => 'En cours'
@@ -106,6 +106,26 @@ class HomeController extends Controller
         }
         
         return view('frontend/projects/show', compact('projects','page'));
+    }
+
+    public function posts()
+    {
+        $posts = Post::where('publish',1)->orderBy('created_at','desc')->paginate(9);
+         $page = (object)[
+                'parent_zone' => 'Actualités',
+                'title' => 'Communiqués'
+            ];
+        return view('frontend.posts.all',compact('posts','page'));
+    }
+
+    public function events()
+    {
+        $events = Event::where('publish',1)->orderBy('created_at','desc')->paginate(9);
+        $page = (object)[
+                'parent_zone' => 'Actualités',
+                'title' => 'évènements à venir'
+            ];
+        return view('frontend.events.all',compact('events','page'));
     }
 
     public function documentationShow()

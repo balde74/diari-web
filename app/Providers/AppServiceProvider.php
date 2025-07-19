@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\Staff;
 use App\Models\Project;
 use App\Models\District;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -50,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
         ->take(3)
         ->get();
         // dd('trouver des image par defaut pour articles,events et personnel, travailler sur personnel ');
-        // Paginator::useBootstrap();
+        Paginator::useBootstrap();
         View::share('districts', $districts);
         View::share('pages', $pages);
         View::share('staffs', $staffs);

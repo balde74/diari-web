@@ -132,25 +132,15 @@
                                     <ul class="dropdown-menu " role="menu">
                                         <li><a href="{{ route('projects_by_status','en-cours') }}">En cours</a></li>
                                         <li><a href="{{ route('projects_by_status','realisations') }}">Réalisations</a></li>
-                                        {{-- <li><a href="404.html">404</a></li>
-                                        <li class="dropdown-submenu">
-                                            <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Parent
-                                                Menu</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#!">Child Menu 1</a></li>
-                                                <li><a href="#!">Child Menu 2</a></li>
-                                                <li><a href="#!">Child Menu 3</a></li>
-                                            </ul>
-                                        </li> --}}
                                     </ul>
                                 </li>
 
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown {{ request()->is('communiqués','évènements') ? 'active' : '' }}">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Actualités <i
                                             class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="news-left-sidebar.html">Actualités</a></li>
-                                        <li><a href="news-right-sidebar.html">évènements</a></li>
+                                        <li><a href="{{ route('posts') }}">Communiqués</a></li>
+                                        <li><a href="{{ route('events') }}">évènements à venir</a></li>
                                     </ul>
                                 </li>
 
