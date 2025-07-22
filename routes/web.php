@@ -66,6 +66,7 @@ Route::get('realisations',[HomeController::class,'projects'])->name('projects');
 Route::get('communiqués',[HomeController::class,'posts'])->name('posts');
 Route::get('évènements',[HomeController::class,'events'])->name('events');
 Route::get('documentations',[HomeController::class,'documentations'])->name('documentation');
+Route::get('district-show/{id}',[HomeController::class,'districtShow'])->name('district_show'); //mettre a jour pour utiliser le slug a la place de l'ID
 // Route::get('en-cours-de-realisations',[HomeController::class,'projects'])->name('projects');
 // web.php
 Route::get('/projects/{status}', [HomeController::class, 'projectsByStatus'])->name('projects_by_status');

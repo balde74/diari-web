@@ -46,10 +46,11 @@ class AppServiceProvider extends ServiceProvider
 
         //projet realisés
         $recent_projects = Project::select('id', 'title', 'slug','image')
-        ->where('status', 'realisé')
-        ->latest()
-        ->take(3)
-        ->get();
+            ->where('status', 'realisé')
+            ->latest()
+            ->take(3)
+            ->get();
+
         // dd('trouver des image par defaut pour articles,events et personnel, travailler sur personnel ');
         Paginator::useBootstrap();
         View::share('districts', $districts);

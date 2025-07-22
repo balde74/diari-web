@@ -24,7 +24,7 @@
                                     <th>#</th>
                                     <th>Date</th>
                                     <th>Titre</th>
-                                    <th>Direction</th>
+                                    <th>District</th>
                                     <th>Status</th>
                                     <th>Lien à copier</th>
                                     <th>Action</th>

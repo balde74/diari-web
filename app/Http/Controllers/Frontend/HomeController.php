@@ -5,6 +5,7 @@ use App\Models\Page;
 use App\Models\Post;
 use App\Models\Event;
 use App\Models\Project;
+use App\Models\District;
 use App\Models\Documentation;
 use App\Http\Controllers\Controller;
 
@@ -140,6 +141,15 @@ class HomeController extends Controller
         return view('frontend/documentation/show', compact('documentations','page'));
 
     }
+
+    public function districtShow($id)
+    {
+       $district = District::find($id);
+       $last_posts = Post::where('district_id',$id)->where('publish',1)->take(3)->get();
+       return view('frontend/districts/show',compact('district','last_posts'));
+    }
+
+// ____________________________________________________
 
     public function article_plusShow()
     {

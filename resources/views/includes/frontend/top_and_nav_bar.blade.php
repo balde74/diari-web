@@ -145,17 +145,17 @@
                                 </li>
 
                                 
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown {{ request()->is('district-show/*') ? 'active' : '' }}">
                                     <a href="#" class="nav-link dropdown-toggle"
                                         data-toggle="dropdown">Districts <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
                                         @foreach ($districts as $district)
-                                            <li><a href="#">{{ $district->name }}</a></li>
+                                            <li><a href="{{ route('district_show',$district->id) }}">{{ $district->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
 
-                                <li class="nav-item"><a class="nav-link" href="{{ route('documentation') }}">Documentation</a></li>
+                                <li class="nav-item {{ request()->is('documentations') ? 'active' : '' }}"><a class="nav-link" href="{{ route('documentation') }}">Documentation</a></li>
                                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                             </ul>
                         </div>
