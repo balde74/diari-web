@@ -59,8 +59,8 @@ Auth::routes(['register'=> false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('pages/{slug}',[HomeController::class,'pageShow'])->name('page_show');
-Route::get('posts/{slug}',[HomeController::class,'postShow'])->name('post_show');
-Route::get('evenements/{id}',[HomeController::class,'eventShow'])->name('event_show'); //mettre a jour pour utiliser le slug a la place de l'ID
+Route::get('coummuniqué/{slug}',[HomeController::class,'postShow'])->name('post_show');
+Route::get('evenement/{id}',[HomeController::class,'eventShow'])->name('event_show'); //mettre a jour pour utiliser le slug a la place de l'ID
 Route::get('projet/{slug}',[HomeController::class,'projectShow'])->name('project_show');
 Route::get('realisations',[HomeController::class,'projects'])->name('projects');
 Route::get('communiqués',[HomeController::class,'posts'])->name('posts');

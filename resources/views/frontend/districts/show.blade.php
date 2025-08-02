@@ -69,7 +69,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="ts-intro">
+                    <div class="ts-intro text-justify">
                         <h2 class="into-title">à propos de nous</h2>
                         <h3 class="into-sub-title">{{ $district->name }}</h3>
                         <p class="text-justify"> {!! $district->presentation !!}</p>

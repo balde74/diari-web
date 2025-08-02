@@ -63,7 +63,7 @@ Modifier une image
 							<select id=""
 								class="select2_single form-control  {{ $errors->has('district_id') ? ' is-invalid' : '' }}"
 								tabindex="-1" name="district_id">
-								<option value="">General</option>
+								<option value="">Général</option>
 								@foreach ($districts as $district)
 								<option value="{{ $district->id }}"
 									@if ($district->id == $carousel->district_id) selected @endif> {{ $district->name }}

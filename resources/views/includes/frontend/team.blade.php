@@ -15,9 +15,9 @@
                             <div class="ts-team-wrapper">
                                 <div class="team-img-wrapper">
                                 @if ($staff->image)
-                                    <img loading="lazy" alt="img" src="{{ asset('documents/'.$staff->image) }}" class="w-100">
+                                    <img loading="lazy" alt="img" src="{{ asset('documents/'.$staff->image) }}" class="w-100" style="height: 450px; object-fit: cover;">
                                 @else
-                                    <img loading="lazy" alt="image par défaut" src="{{ asset('default_images/frontend/staff_default_image.jpg') }}" class="w-100">
+                                    <img loading="lazy" alt="image par défaut" src="{{ asset('default_images/frontend/staff_default_image.jpg') }}" class="w-100" style="height: 450px; object-fit: cover;">
                                 @endif
                                     {{-- <img loading="lazy" class="w-100" src="images/team/team1.jpg" alt="team-img"> --}}
                                 </div>

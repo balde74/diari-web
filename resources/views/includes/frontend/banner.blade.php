@@ -12,6 +12,9 @@
                                 <li class="breadcrumb-item"><a href="#"> Accueil</a></li>
                                 <li class="breadcrumb-item"><a href="#"> {{ $page->parent_zone??'' }}</a></li>
                                 <li class="breadcrumb-item"><a href="#">{{ $page->title??'' }}</a></li>
+                                @if (isset($page->current_page))
+                                    <li class="breadcrumb-item active" aria-current="page">{{ Str::limit($page->current_page,30,'...') }}</li>
+                                @endif
                             </ol>
                         </nav>
                     </div>

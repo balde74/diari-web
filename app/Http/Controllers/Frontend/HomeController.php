@@ -66,15 +66,23 @@ class HomeController extends Controller
     public function postShow($slug)
     {
         $post = Post::where('slug', $slug)->first();
-        dd($post);
-        return view('frontend/page/show', compact('post'));
+        $page = (object)[
+            'parent_zone' => 'Actualités',
+            'title' => 'Communiqués',
+            'current_page'=> $post->title
+        ];
+        return view('frontend/posts/show', compact('post','page'));
     }
 
     public function eventShow($id)
     {
         $event = Event::findOrFail($id);
-        dd($event);
-        return view('frontend/page/show', compact('post'));
+          $page = (object)[
+            'parent_zone' => 'Actualités',
+            'title' => 'évènements à venir',
+            'current_page'=> $event->title
+        ];
+        return view('frontend/events/show', compact('event','page'));
     }
 
     public function projectShow($slug)

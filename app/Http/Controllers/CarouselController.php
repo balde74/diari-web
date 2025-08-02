@@ -91,9 +91,12 @@ class CarouselController extends Controller
         
         $carousel->description = $request->description;
         $carousel->link = $request->link;
-
+       
         if ($request->district_id) {
             $carousel->district_id = $request->district_id;
+        }else
+        {
+            $carousel->district_id = null;
         }
        
         $carousel->save();

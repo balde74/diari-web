@@ -13,20 +13,22 @@
                 <div class="col-lg-4 col-md-6 mb-5">
                     <div class="ts-service-box">
                         <div class="ts-service-image-wrapper">
+                            <a href="{{ route('post_show',$post->slug) }}">
                             @if ($post->image)
                                 <img loading="lazy" class="w-100" src="{{ asset('documents/'.$post->image) }}" alt="service-image" style="height: 300px; object-fit: cover;"> 
                             @else
                                 <img loading="lazy" class="w-100" src="{{ asset('default_images/frontend/post_default_image.jpg') }}" alt="post-image" style="height: 300px; object-fit: cover;"> 
                             @endif
+                            </a>
                         </div>
                         <div>
                             {{-- <div class="ts-service-box-img">
                                 <img loading="lazy" src="images/icon-image/service-icon1.png" alt="service-icon">
                             </div> --}}
                             <div>
-                                <h3 class="service-box-title"><a href="service-single.html">{{ Str::limit($post->title,50,'...') }}</a></h3>
+                                <h3 class="service-box-title"><a href="{{ route('post_show',$post->slug) }}">{{ Str::limit($post->title,50,'...') }}</a></h3>
                                 <p class="text-justify"> {!! Str::limit($post->introduction, 200, '...') !!} </p>
-                                <a class="learn-more d-inline-block" href="service-single.html" aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
+                                <a class="learn-more d-inline-block" href="{{ route('post_show',$post->slug) }}" aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
                             </div>
                         </div>
                     </div><!-- Service1 end -->

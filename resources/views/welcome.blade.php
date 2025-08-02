@@ -8,6 +8,8 @@
 
 
 <div class="banner-carousel banner-carousel-1 mb-0">
+   @if ($carousels->count() > 0)
+    @foreach ($carousels as $carousel)    
     <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg1.jpg)">
         <div class="slider-content">
             <div class="container h-100">
@@ -24,8 +26,27 @@
             </div>
         </div>
     </div>
+    @endforeach
+    @else
+        <div class="banner-carousel-item" style="background-image:url({{ asset('default_images/frontend/default_carousel.jpg') }})">
+            <div class="slider-content">
+                <div class="container h-100">
+                    <div class="row align-items-center h-100">
+                        <div class="col-md-12 text-center">
+                            <h2 class="slide-title" data-animation-in="slideInLeft"></h2>
+                            <h3 class="slide-sub-title" data-animation-in="slideInRight">Diari</h3>
+                            <p data-animation-in="slideInLeft" data-duration-in="1.2">
+                                {{-- <a href="services.html" class="slider btn btn-primary">Our Services</a> --}}
+                                <a href="#contact-nous" class="slider btn btn-primary border">Nous joindre</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 
-    <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg2.jpg)">
+    {{-- <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg2.jpg)">
         <div class="slider-content text-left">
             <div class="container h-100">
                 <div class="row align-items-center h-100">
@@ -61,7 +82,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 <section class="call-to-action-box no-padding">

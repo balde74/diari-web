@@ -87,14 +87,12 @@ class SectionController extends Controller
             'post_id'=>'required|exists:posts,id',
             'image'=>'sometimes|mimes:jpg,png'
         ]);
-
         $section->content = $request->content;    
         $section->post_id = $request->post_id;
         if ($request->position) {
             $section->position = $request->position;
         }
-
-        // dd($section);
+        // dd($request->image);
         $section->save();
 
         if ($request->image) {
