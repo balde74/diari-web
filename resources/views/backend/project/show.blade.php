@@ -15,7 +15,7 @@
 					<div class="row mb-4">
 						<div class="col-md-8">
 							<p><strong>Titre :</strong> {{ $project->title }}</p>
-							<p><strong>Slug :</strong> {{ $project->slug }}</p>
+							{{-- <p><strong>Slug :</strong> {{ $project->slug }}</p> --}}
 							<p><strong>Description :</strong></p>
 							<div style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;">
 								{!! $project->description	 !!}
@@ -25,7 +25,7 @@
 							@if ($project->image)
 								<img src="{{ asset('documents/' . $project->image) }}" alt="Image du projet" style="max-width:100%; border-radius: 10px;">
 							@else
-								<img src="{{ asset('default_project.png') }}" alt="Image par défaut" style="max-width:100%; border-radius: 10px;">
+								<span class="text-info">Aucune image</span>
 							@endif
 						</div>
 					</div>

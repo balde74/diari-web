@@ -44,7 +44,7 @@
     z-index: 1;
 }
   </style>
-
+ @yield('autres_css')
 </head>
 <body>
   <div class="body-inner">

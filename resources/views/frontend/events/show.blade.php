@@ -29,7 +29,7 @@
                                         <i class="fa fa-map-marker text-danger"></i><a href="#"> {{ $event->place }}</a>
                                     </span>
                                     <span class="post-cat">
-                                        <i class="far fa-folder-open"></i><a href="#"> évènement</a>
+                                        <i class="far fa-folder-open"></i><a href="#"> Evènement</a>
                                     </span>
                                     <span class="post-meta-date"><i class="far fa-calendar"></i> {{ $event->created_at->format('d/m/Y') }}</span>
                                     {{-- <span class="post-comment"><i class="far fa-comment"></i> 03<a href="#"

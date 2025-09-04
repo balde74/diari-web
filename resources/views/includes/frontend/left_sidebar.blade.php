@@ -18,7 +18,7 @@
                     </div>
                     <div class="post-info">
                         <h4 class="entry-title">
-                            <a href="{{ route('post_show',$recent_post->slug) }}">{{ $recent_post->title }}</a>
+                            <a href="{{ route('post_show',$recent_post->slug) }}">{{ Str::limit($recent_post->title,50,'...') }}</a>
                         </h4>
                     </div>
                 </li><!-- 1st post end-->

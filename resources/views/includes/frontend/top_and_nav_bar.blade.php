@@ -4,7 +4,7 @@
             <div class="col-lg-8 col-md-8">
                 <ul class="top-info text-center text-md-left">
                     <li><i class="fas fa-map-marker-alt"></i>
-                        <p class="info-text">9051 Constra Incorporate, USA</p>
+                        <p class="info-text">Sous prefecture de Diari</p>
                     </li>
                 </ul>
             </div>
@@ -156,7 +156,7 @@
                                 </li>
 
                                 <li class="nav-item {{ request()->is('documentations') ? 'active' : '' }}"><a class="nav-link" href="{{ route('documentation') }}">Documentation</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                             </ul>
                         </div>
                     </nav>

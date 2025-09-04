@@ -77,7 +77,7 @@ class HomeController extends Controller
     public function eventShow($id)
     {
         $event = Event::findOrFail($id);
-          $page = (object)[
+        $page = (object)[
             'parent_zone' => 'Actualités',
             'title' => 'évènements à venir',
             'current_page'=> $event->title
@@ -88,8 +88,20 @@ class HomeController extends Controller
     public function projectShow($slug)
     {
         $project = Project::where('slug', $slug)->first();
-        dd($project);
-        return view('frontend/page/show', compact('post'));
+        if($project->status == 'realisé')
+        {
+            $status = 'Réalisations';
+        }
+        else
+        {
+            $status = 'En cours';
+        }
+        $page = (object)[
+            'parent_zone' => 'Projets',
+            'title' => $status,
+            'current_page'=> $project->title
+        ];
+        return view('frontend/projects/show', compact('project','page'));
     }
 
     public function projectsByStatus($status)
@@ -115,7 +127,7 @@ class HomeController extends Controller
             ];
         }
         
-        return view('frontend/projects/show', compact('projects','page'));
+        return view('frontend/projects/all', compact('projects','page'));
     }
 
     public function posts()

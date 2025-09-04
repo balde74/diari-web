@@ -1,57 +1,93 @@
 @extends('layouts.main-frontend-layout')
 @section('title')
-    réalisations
+     @if($project->status == 'realisé')
+        réalisation
+    @else
+        projet en cours
+    @endif
 @endsection
 @section('content')
     @include('includes.frontend.banner')
-    <section id="main-container" class="main-container pb-2">
-        <div class="container mt-2">
-        <div class="row">
+    <section id="main-container" class="main-container">
+        <div class="container">
+            <div class="row">
 
-            {{-- @include('includes.frontend.left_sidebar') --}}
-            @foreach ($projects as $project)
-                <div class="col-lg-4 col-md-6 mb-5">
-                <div class="ts-service-box">
-                    <div class="ts-service-image-wrapper">
-                        @if ($project->image)
-                            <img loading="lazy" class="w-100" src="{{ asset('documents/'.$project->image) }}" alt="service-image" style="height: 300px; object-fit: cover;"> 
-                        @else
-                            <img loading="lazy" class="w-100" src="{{ asset('default_images/frontend/project_default_image.jpg') }}" alt="project-image" style="height: 300px; object-fit: cover;"> 
-                        @endif
-                    </div>
-                    <div class="d-flex">
-                        {{-- <div class="ts-service-box-img">
-                            <img loading="lazy" src="images/icon-image/service-icon1.png" alt="service-icon">
-                        </div> --}}
-                        <div >
-                            <h3 class="service-box-title"><a href="service-single.html">{{ Str::limit($project->title,50,'...') }}</a></h3>
-                            {{-- <p> {!! Str::limit($project->description, 500, ' ...') !!} </p> --}}
-                            <p>
-                                <span class="badge 
-                                  @if($project->status == 'prévu') badge-secondary
-                                  @elseif($project->status == 'en cours') badge-warning
-                                  @elseif($project->status == 'réalisé' || $project->status == 'realisé' ) badge-success
-                                  @endif
-                                ">
-                                  {{ ucfirst($project->status) }}
-                                </span>
-                              </p>
-                            <a class="learn-more d-inline-block" href="service-single.html" aria-label="service-details"><i class="fa fa-caret-right"></i> Voir plus</a>
+                <div class="col-lg-9 mb-5 mb-lg-0">
+
+                    <div class="post-content post-single">
+                        <div class="post-media post-image">
+                            @if ($project->image)
+                                <img loading="lazy" class="w-100 img-fluid" src="{{ asset('documents/' . $project->image) }}"
+                                    alt="service-image" style="height: 300px; object-fit: cover;">
+                            @else
+                                <img loading="lazy" class="w-100 img-fluid"
+                                    src="{{ asset('default_images/frontend/project_default_image.jpg') }}" alt="post-image"
+                                    style="height: 300px; object-fit: cover;">
+                            @endif
                         </div>
-                    </div>
-                </div><!-- Service1 end -->
-                </div><!-- Col 1 end -->
+
+                        <div class="post-body">
+                            <div class="entry-header">
+                                <div class="post-meta">
+                                    <span class="post-author ">
+                                        <i class="far fa-calendar text-primary"></i><a href="#"> Du {{ $project->start_date }}</a>
+                                    </span>
+                                    <span class="post-cat">
+                                        <i class="far fa-folder-open"></i><a href="#"> Projet</a>
+                                    </span>
+                                    <span class="post-author ">
+                                        <i class="far fa-calendar-check text-danger"></i><a href="#"> Au {{ $project->end_date }}</a>
+                                    </span>
+                                    {{-- <span class="post-meta-date"><i class="far fa-calendar"></i> {{ $project->end_date }}</span> --}}
+                                    {{-- <span class="post-comment"><i class="far fa-comment"></i> 03<a href="#"
+                                            class="comments-link">Comments</a></span> --}}
+                                </div>
+                                <h2 class="entry-title">
+                                    {{ $project->title }}
+                                </h2>
+                            </div><!-- header end -->
+
+                            <div class="entry-content">
+                                <div class="text-justify">
+                                    {!! $project->description !!}
+                                </div>
+
+                             
+                            </div>
+
+                            <div class="tags-area d-flex align-items-center justify-content-between">
+                                <div class="post-tags">
+                                    @if ($project->budget)
+                                        <a href="#">{{ $project->budget ? number_format($project->budget, 2, ',', ' ') . ' GNF' : '-' }}</a>
+                                    @endif
+                                    
+                                    <a href="#">{{ ucfirst($project->status) }}</a>
+                                    {{-- <a href="#">Planning</a> --}}
+                                </div>
+                                <div class="share-items right">
+                                    <ul class="post-social-icons list-unstyled">
+                                        <li class="social-icons-head">Share:</li>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div><!-- post-body end -->
+                    </div><!-- post content end -->
+
+                                     <p>commentaire</p>
+
                 
-            @endforeach
-          
-               
-        </div>
-        <div class="d-flex justify-content-center my-4">
-            {{ $projects->links() }}
-        </div>
+                    <p>Ajout commentaire</p>
+                </div><!-- Content Col end -->
 
+                             @include('includes/frontend/left_sidebar')
 
-        @include('includes.frontend.team')
-    </div><!-- Container end -->
+            </div><!-- Main row end -->
+
+        </div><!-- Conatiner end -->
     </section><!-- Main container end -->
 @endsection
